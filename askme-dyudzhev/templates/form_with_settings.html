@@ -1,0 +1,43 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="main-header">
+        <p class="tag">Settings: </p>
+        <p class="tag">{{ request.user.username }}</p>
+    </div>
+    <form class="mt-4" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Login</label>
+            <div class="col-sm-10">
+                {{ form.login }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+            <div class="col-sm-10">
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Nickname</label>
+            <div class="col-sm-10">
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Password</label>
+            <div class="col-sm-10">
+                {{ form.password }}
+            </div>
+        </div>
+        <div class="form-group row short">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Upload avatar</label>
+            <div class="col-sm-10">
+                {{ avatar_form }}
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-info btn-ask">Save</button>
+    </form>
+{% endblock content %}
